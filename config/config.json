@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "Norman12",
+    "database": "win",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "use_env_variable": "JAWSDB_URL",
+    "dialect": "mysql",
+    "host": "s3lkt7lynu0uthj8.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "username":"g8xixs8peh8yciae",
+    "password":"l8a9ehu1ln6cij6f"
+  }
+}
