@@ -1,16 +1,20 @@
-
+// Set up document listener
 $(document).ready(function () {
+
+  // hide resourceTable from user
   $("#resourceTable").hide();
+
+  // declaring variables
   var winLocations = [];
-  var winServices = ["housing", "domestic_violence", "food", "clothing", "babysitting", "doctor_visit", "medicine", "infant_items", "daycare", "auto_repair", "bus_pass", "other_transport", "furniture", "employment", "legal_aide", "school_supplies", "education_assistance", "counseling", "drug_addiction", "internet_phone_tech", "immigration_assist"
-  ];
+  var winServices = ["housing", "domestic_violence", "food", "clothing", "babysitting", "doctor_visit", "medicine", "infant_items", "daycare", "auto_repair", "bus_pass", "other_transport", "furniture", "employment", "legal_aide", "school_supplies", "education_assistance", "counseling", "drug_addiction", "internet_phone_tech", "immigration_assist"];
   var winServicesLoc = [];
   var reqServices = [];
-  //Event listener to list resources
+
+  //Event listener to list resources and reset page
   $(document).on("click", "#searchAll", searchAll);
   $(document).on("click", "#reset", reset);
 
-
+  // Function to search for nearby resources
   function searchAll(event) {
     event.preventDefault();
     getResources();
@@ -18,130 +22,120 @@ $(document).ready(function () {
     
     
 
+
   }
 
+  // Function to reset the search form
   function reset(event) {
     location.reload();
   }
 
+  // function to list resources available
   function resources() {
 
- console.log(winLocations)
- for (i=0; i< winLocations.length; i++){
-  console.log(winLocations[i]);
-  console.log(winServices[i]);
+    console.log(winLocations)
+    for (i = 0; i < winLocations.length; i++) {
+      console.log(winLocations[i]);
+      console.log(winServices[i]);
 
- }
+    }
 
 
 
 
 
   }
-
 
   function getResources() {
 
 
     $.get("/getresources", function (data) {
       console.log("data is", data);
+      console.log(data);
 
+      // if statement to check for organization location and append to page
       if ($('#checkNW').is(":checked")) {
         for (i = 0; i < data.length; i++) {
           if (data[i].location === $("#checkNW").val()) {
             winLocations.push(data[i]);
             console.log(data[i].name);
-            var name= data[i].name;
-            var address= data[i].address;
-            var email= data[i].email;
-            var phone=data[i].phone;
-            var website=data[i].website;
-            $("#placement").append("<p>"+name+"</p><p>"+address+"</p><p>"+email+"</p><p> Phone: "+phone+ "</p><p>"+website+"</p><br/>")
+            var name = data[i].name;
+            var address = data[i].address;
+            var email = data[i].email;
+            var phone = data[i].phone;
+            var website = data[i].website;
+            
 
-
-
-
+            $("#placement").append("<p>" + name + "</p><p>" + address + "</p><p>" + email + "</p><p> Phone: " + phone + "</p><p>" + website + "</p><br/>")
           }
 
         }
-        
+
         console.log(winLocations);
       }
 
+
+      // if statement to check for organization location and append to page
       if ($('#checkSW').is(":checked")) {
         for (i = 0; i < data.length; i++) {
           if (data[i].location === $("#checkSW").val()) {
             winLocations.push(data[i]);
-            var name= data[i].name;
-            var address= data[i].address;
-            var email= data[i].email;
-            var phone=data[i].phone;
-            var website=data[i].website;
-            $("#placement").append("<p>"+name+"</p><p>"+address+"</p><p>"+email+"</p><p> Phone: "+phone+ "</p><p>"+website+"</p><br/>")
-
-
-
-
+            var name = data[i].name;
+            var address = data[i].address;
+            var email = data[i].email;
+            var phone = data[i].phone;
+            var website = data[i].website;
+            $("#placement").append("<p>" + name + "</p><p>" + address + "</p><p>" + email + "</p><p> Phone: " + phone + "</p><p>" + website + "</p><br/>")
           }
         }
         console.log(winLocations);
       }
 
+      // if statement to check for organization location and append to page
       if ($('#checkSE').is(":checked")) {
         for (i = 0; i < data.length; i++) {
           if (data[i].location === $("#checkSE").val()) {
             winLocations.push(data[i]);
-            var name= data[i].name;
-            var address= data[i].address;
-            var email= data[i].email;
-            var phone=data[i].phone;
-            var website=data[i].website;
-            $("#placement").append("<p>"+name+"</p><p>"+address+"</p><p>"+email+"</p><p> Phone: "+phone+ "</p><p>"+website+"</p><br/>")
-
-
-
-
+            var name = data[i].name;
+            var address = data[i].address;
+            var email = data[i].email;
+            var phone = data[i].phone;
+            var website = data[i].website;
+            $("#placement").append("<p>" + name + "</p><p>" + address + "</p><p>" + email + "</p><p> Phone: " + phone + "</p><p>" + website + "</p><br/>")
           }
         }
         console.log(winLocations);
       }
 
+      // if statement to check for organization location and append to page
       if ($('#checkNE').is(":checked")) {
         for (i = 0; i < data.length; i++) {
           if (data[i].location === $("#checkNE").val()) {
             winLocations.push(data[i]);
-            var name= data[i].name;
-            var address= data[i].address;
-            var email= data[i].email;
-            var phone=data[i].phone;
-            var website=data[i].website;
-            $("#placement").append("<p>"+name+"</p><p>"+address+"</p><p>"+email+"</p><p> Phone: "+phone+ "</p><p>"+website+"</p><br/>")
-
-
-
-
+            var name = data[i].name;
+            var address = data[i].address;
+            var email = data[i].email;
+            var phone = data[i].phone;
+            var website = data[i].website;
+            $("#placement").append("<p>" + name + "</p><p>" + address + "</p><p>" + email + "</p><p> Phone: " + phone + "</p><p>" + website + "</p><br/>")
           }
         }
-        console.log(winLocations);
       }
 
-
+      // if statement to check for organization location and append to page
       if ($('#checkCN').is(":checked")) {
         for (i = 0; i < data.length; i++) {
           if (data[i].location === $("#checkCN").val()) {
             winLocations.push(data[i]);
-            var name= data[i].name;
-            var address= data[i].address;
-            var email= data[i].email;
-            var phone=data[i].phone;
-            var website=data[i].website;
-            $("#placement").append("<p>"+name+"</p><p>"+address+"</p><p>"+email+"</p><p> Phone: "+phone+ "</p><p>"+website+"</p><br/>")
-
-
-
-
+            var name = data[i].name;
+            var address = data[i].address;
+            var email = data[i].email;
+            var phone = data[i].phone;
+            var website = data[i].website;
+            $("#placement").append("<p>" + name + "</p><p>" + address + "</p><p>" + email + "</p><p> Phone: " + phone + "</p><p>" + website + "</p><br/>")
           }
         }
+
       }
       
 
@@ -168,6 +162,8 @@ $(document).ready(function () {
     }  
   };
 }
+
+
 
 if ($('#infant_items').is(":checked")) {
   for (i = 0; i < winLocations.length; i++) {
@@ -292,6 +288,8 @@ $("#placement").prepend("<p> These Services are Available in your Area:      "+w
 
 
       
+
+      // hide and show parts of html based on user activity
       $("#resourceForm").hide();
       $("#resourceTable").show();
   
@@ -304,11 +302,4 @@ $("#placement").prepend("<p> These Services are Available in your Area:      "+w
 
   }
 
-
-
-
-
-
-
-
-});
+  
