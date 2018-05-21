@@ -21,10 +21,6 @@ router.get('/members', function (req, res){
     res.render('members');
 })
 
-router.get('/membersAddServ', function (req, res){
-    res.render('membersAddServ');
-})
-
 //add router.post for log in
 //Incoming form data
 console.log("Here line 20");
@@ -66,8 +62,7 @@ router.post('/register', function (req, res) {
                 bcrypt.hash(somePassword, salt, (err, hash) => {
                     if (err) throw err;
                     somePassword = hash;
-                    console.log(somePassword);
-                    //add user to User table in DB
+                    console.log(somePassword);//***this works to here
                     db.User.create({
                         name: req.body.name,
                         username: req.body.name,
