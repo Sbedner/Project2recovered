@@ -18,7 +18,9 @@ $(document).ready(function () {
   function searchAll(event) {
     event.preventDefault();
     getResources();
-    reqresources();
+    resources();
+    
+    
 
 
   }
@@ -38,8 +40,12 @@ $(document).ready(function () {
 
     }
 
+
+
+
+
   }
-  
+
   function getResources() {
 
 
@@ -130,193 +136,170 @@ $(document).ready(function () {
           }
         }
 
-        // check console log and running resource function
-        console.log(winLocations);
-        resources(winLocations);
-
       }
+      
 
+      if ($('#housing').is(":checked")) {
+        for (i = 0; i < winLocations.length; i++) {
+          if (winLocations[i].housing === $("#housing").val()) {winServicesLoc.push("housing");
+          console.log("housing");
+        }  
+      };
+    }
 
-      // hide and show parts of html based on user activity
-      $("#resourceForm").hide();
-      $("#resourceTable").show();
-
-
-    });
+    if ($('#clothing').is(":checked")) {
+      for (i = 0; i < winLocations.length; i++) {
+        if (winLocations[i].clothing === $("#clothing").val()) {winServicesLoc.push("clothing");
+        
+      }  
+    };
   }
 
-  function reqresources(data){
-    console.log("req resources is firing");
- 
-    $.get("/getresources", function (data) {
-     console.log("data is", data);
-  
-    if ($('#housing').is(":checked")) {
-     for (i = 0; i < winLocations.length; i++) {
-       if (winLocations[i].housing === $("#housing").val()) {
-         reqServices.push("housing");
-         console.log(reqServices)
-  }
- }
- }
- if ($('#babysitting').is(":checked")) {
-  for (i = 0; i < winLocations.length; i++) {
-    if (winLocations[i].babysitting === $("#babysitting").val()) {
-      reqServices.push("babysitting");
-      console.log(reqServices)
+  if ($('#babysitting').is(":checked")) {
+    for (i = 0; i < winLocations.length; i++) {
+      if (winLocations[i].babysitting === $("#babysitting").val()) {winServicesLoc.push("babysitting");
+    
+    }  
+  };
 }
-}
-}
+
+
 
 if ($('#infant_items').is(":checked")) {
   for (i = 0; i < winLocations.length; i++) {
-    if (winLocations[i].infant_items === $("#infant_items").val()) {
-      reqServices.push("InfantItems");
-      console.log(reqServices)
-}
-}
+    if (winLocations[i].infant_items === $("#infant_items").val()) {winServicesLoc.push("infant_items");
+    
+  }  
+};
 }
 
 if ($('#daycare').is(":checked")) {
   for (i = 0; i < winLocations.length; i++) {
-    if (winLocations[i].daycare === $("#daycare").val()) {
-      reqServices.push("daycare");
-      console.log(reqServices)
-}
-}
+    if (winLocations[i].daycare === $("#daycare").val()) {winServicesLoc.push("daycare");
+   
+  }  
+};
 }
 
 if ($('#school_supplies').is(":checked")) {
   for (i = 0; i < winLocations.length; i++) {
-    if (winLocations[i].school_supplies === $("#school_supplies").val()) {
-      reqServices.push("school_supplies");
-      console.log(reqServices)
+    if (winLocations[i].school_supplies === $("#school_supplies").val()) {winServicesLoc.push("school_supplies");
+    
+  }  
+};
 }
-}
-}
-
-if ($('#clothing').is(":checked")) {
-  for (i = 0; i < winLocations.length; i++) {
-    if (winLocations[i].clothing === $("#clothing").val()) {
-      reqServices.push("clothing");
-      console.log(reqServices)
-}
-}
-}
-
-if ($('#counseling').is(":checked")) {
-  for (i = 0; i < winLocations.length; i++) {
-    if (winLocations[i].counseling === $("#counseling").val()) {
-      reqServices.push("counseling");
-      console.log(reqServices)
-}
-}
-}
-
+      
 if ($('#employment').is(":checked")) {
   for (i = 0; i < winLocations.length; i++) {
-    if (winLocations[i].employment === $("#employment").val()) {
-      reqServices.push("employment");
-      console.log(reqServices);
+    if (winLocations[i].employment === $("#employment").val()) {winServicesLoc.push("employment");
+    
+  }  
+};
 }
+if ($('#counseling').is(":checked")) {
+  for (i = 0; i < winLocations.length; i++) {
+    if (winLocations[i].counseling === $("#counseling").val()) {winServicesLoc.push("counseling");
+    
+  }  
+};
 }
-}
-
 if ($('#immigration_assist').is(":checked")) {
   for (i = 0; i < winLocations.length; i++) {
-    if (winLocations[i].immigration_assist === $("#immigration_assist").val()) {
-      reqServices.push("immigrationServices");
-      console.log(reqServices)
-}
-}
+    if (winLocations[i].immigration_assist === $("#immigration_assist").val()) {winServicesLoc.push("immigration_assist");
+    
+  }  
+};
 }
 
 if ($('#doctor_visit').is(":checked")) {
   for (i = 0; i < winLocations.length; i++) {
-    if (winLocations[i].doctor_visit === $("#doctor_visit").val()) {
-      reqServices.push("Doctor");
-      console.log(reqServices)
+    if (winLocations[i].doctor_visit === $("#doctor_visit").val()) {winServicesLoc.push("doctor_visit");
+    
+  }  
+};
 }
-}
-}
-
 if ($('#legal_aide').is(":checked")) {
   for (i = 0; i < winLocations.length; i++) {
-    if (winLocations[i].legal_aide === $("#legal_aide").val()) {
-      reqServices.push("legal");
-      console.log(reqServices)
+    if (winLocations[i].legal_aide === $("#legal_aide").val()) {winServicesLoc.push("legal_aide");
+    
+  }  
+};
 }
+if ($('#drug_addiction').is(":checked")) {
+  for (i = 0; i < winLocations.length; i++) {
+    if (winLocations[i].drug_addiction === $("#drug_addiction").val()) {winServicesLoc.push("drug_addiction");
+    
+  }  
+};
 }
-}
-
 if ($('#furniture').is(":checked")) {
   for (i = 0; i < winLocations.length; i++) {
-    if (winLocations[i].furniture === $("#furniture").val()) {
-      reqServices.push("furniture");
-      console.log(reqServices)
+    if (winLocations[i].furniture === $("#furniture").val()) {winServicesLoc.push("furniture");
+    
+  }  
+};
 }
-}
-}
-
 if ($('#domestic_violence').is(":checked")) {
   for (i = 0; i < winLocations.length; i++) {
-    if (winLocations[i].domestic_violence === $("#domestic_violence").val()) {
-      reqServices.push("domestic_violence");
-      console.log(reqServices)
+    if (winLocations[i].domestic_violence === $("#domestic_violence").val()) {winServicesLoc.push("domestic_violence");
+    
+  }  
+};
 }
-}
-}
-
 if ($('#bus_pass').is(":checked")) {
   for (i = 0; i < winLocations.length; i++) {
-    if (winLocations[i].bus_pass === $("#bus_pass").val()) {
-      reqServices.push("bus_passes");
-      console.log(reqServices)
+    if (winLocations[i].bus_pass === $("#bus_pass").val()) {winServicesLoc.push("bus_pass");
+    
+  }  
+};
 }
-}
-}
-
 if ($('#internet_phone_tech').is(":checked")) {
   for (i = 0; i < winLocations.length; i++) {
-    if (winLocations[i].internet_phone_tech
-      === $("#internet_phone_tech").val()) {
-      reqServices.push("TechServices");
-      console.log(reqServices)
+    if (winLocations[i].internet_phone_tech === $("#internet_phone_tech").val()) {winServicesLoc.push("internet_phone_tech");
+    
+  }  
+};
 }
-}
-}
-
 if ($('#auto_repair').is(":checked")) {
   for (i = 0; i < winLocations.length; i++) {
-    if (winLocations[i].auto_repair === $("#auto_repair").val()) {
-      reqServices.push("auto_repair");
-      console.log(reqServices)
+    if (winLocations[i].auto_repair === $("#auto_repair").val()) {winServicesLoc.push("auto_repair");
+    
+  }  
+};
 }
-}
-}
-
 if ($('#food').is(":checked")) {
   for (i = 0; i < winLocations.length; i++) {
-    if (winLocations[i].food === $("#food").val()) {
-      reqServices.push("food/SNAP");
-      console.log(reqServices)
+    if (winLocations[i].food === $("#food").val()) {winServicesLoc.push("food");
+    
+  }  
+};
 }
-}
-}
-
 if ($('#medicine').is(":checked")) {
   for (i = 0; i < winLocations.length; i++) {
-    if (winLocations[i].medicine === $("#medicine").val()) {
-      reqServices.push("medicine");
-      console.log(reqServices)
+    if (winLocations[i].medicine === $("#medicine").val()) {winServicesLoc.push("medicine");
+    
+  }  
+};
 }
-}
-}
-$("#placement").prepend("<p>These services are available in your area:     "+reqServices+  "<p><br/>");
- })
 
-  };
+$("#placement").prepend("<p> These Services are Available in your Area:      "+winServicesLoc+"</p>");
 
+
+
+
+      
+
+      // hide and show parts of html based on user activity
+      $("#resourceForm").hide();
+      $("#resourceTable").show();
   
 
-});
+    });
+
+  
+    
+
+
+  }
+
+  
